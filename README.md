@@ -1,2 +1,2 @@
 # PythonGame
- A simple Pythongame where you have to guess a number, based on the difficulty.
+ A simple game where you have to guess a number, based on the difficulty.
