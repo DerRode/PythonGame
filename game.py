@@ -9,6 +9,15 @@ clear = lambda: os.system('cls')
 leer = " "
 strich = "----------------------------------------------------------"
 
+def lose():
+    clear()
+    print(strich)
+    print("GAME OVER")
+    print(strich)
+    print("Sie haben verloren, da sie 0 Punkte erreicht haben")
+    print("Viel glück beim nächsten mal!")
+    restart()
+
 def game():
     tries = 0
     done = False
@@ -30,13 +39,16 @@ def game():
             print(" ")
             tries +=1
             resultpoints-=trypoints
-            if guess > maxguess:
-                print(f"Sie können nur Zahlen bis {maxguess} auswählen!")
+            if resultpoints == 0:
+                lose()
             else:
-                if guess > number:
-                    print("Die Nummer ist kleiner")
-                elif guess < number:
-                    print("Die Nummer ist größer")
+                if guess > maxguess:
+                    print(f"Sie können nur Zahlen bis {maxguess} auswählen!")
+                else:
+                    if guess > number:
+                        print("Die Nummer ist kleiner")
+                    elif guess < number:
+                        print("Die Nummer ist größer")
 
     print(f"Du brauchtest {tries} Versuche!")
     #resultpoints = points -(tries*trypoints)
@@ -107,6 +119,7 @@ def restart():
     elif ask == "Nein" or ask == "nein":
         print(strich)
         print("Vielen Dank fürs Spielen")
+        time.sleep(2)
         exit()
     else:
         print(leer)
